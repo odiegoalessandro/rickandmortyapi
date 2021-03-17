@@ -14,6 +14,11 @@ const Container = styled.div`
   & > p{
     font-weight: 500;
   }
+  @media (max-width: 635px){
+    flex-direction: column;
+    width: 220px;
+    height: 460px;
+  }
 `
 
 const Text = styled.div`
@@ -47,7 +52,7 @@ export default function Card({character}){
           </p>
         </div>
         
-        <div style={{margin: '20px 0px'}}>
+        <div style={{margin: '15px 0px'}}>
           <h4 style={{color: '#919E9E'}}>
             Last known location:
           </h4>

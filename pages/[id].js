@@ -9,7 +9,11 @@ const Container = styled.div`
   width: 100%;
   padding: 50px 0;
   & > div {
+    box-sizing: content-box; 
     margin: 10px;
+    @media (max-width: 635px){
+      padding-bottom: 20px;
+    }
   }
 `
 
@@ -24,6 +28,16 @@ const Link = styled.a`
     color: rgb(60, 62, 68);
   }
 ` 
+
+const Menu = styled.div`
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #24282F;
+`
 
 export async function getStaticPaths(){
   return {
@@ -53,18 +67,20 @@ export default function Id({id, characters}){
   var prevPage = parseInt(id) - 1
   return(
     <>
-      <Link 
-        href={prevPage}
-        style={{left: '20px', top: '20px'}}
-      >
-        anterior
-      </Link>
-      <Link 
-        href={nextPage}
-        style={{right: '20px', top: '20px'}}
-      >
-        proximo
-      </Link>
+      <Menu>
+        <Link 
+          href={prevPage}
+          style={{left: '20px', top: '20px'}}
+        >
+          anterior
+        </Link>
+        <Link 
+          href={nextPage}
+          style={{right: '20px', top: '20px'}}
+        >
+          proximo
+        </Link>
+      </Menu>
       <Container>
         {
           characters.results.map(character => {

@@ -1,4 +1,5 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import Head from '../src/components/Head'
 
 const GlobalStyle = createGlobalStyle`
   *, input, button {
@@ -22,6 +23,14 @@ const theme = {
 export default function App({ Component, pageProps }) {
   return (
     <>
+      <Head>
+        <title>Rick And Morty Wiki</title>
+        <link 
+          rel="icon"
+          href="https://rickandmortyapi.com/favicon-32x32.png?v=1538abef51e33ef514e8fe1ab9aeab4"
+          type="image/png"
+        />
+      </Head>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
